@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EurionMC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">EURIONMC</div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <nav id="nav" class="nav">
+            <a class="nav-link" href="#vips">
+                <i class="fa-solid fa-crown nav-icon vip-icon"></i> VIPs
+            </a>
+
+            <a class="nav-link" href="#coin">
+                <i class="fa-solid fa-coins nav-icon coin-icon"></i> ECoin
+            </a>
+
+            <a class="nav-link" href="#keys">
+                <i class="fa-solid fa-key nav-icon key-icon"></i> Chaves
+            </a>
+
+            <a class="nav-link" href="#cosmetic">
+                <i class="fa-solid fa-wand-magic-sparkles nav-icon cosmetic-icon"></i> Cosméticos
+            </a>
+
+            <a class="nav-link" href="#pets">
+                <i class="fa-solid fa-paw nav-icon pet-icon"></i> Pets
+            </a>
+
+            <a class="nav-link nav-highlight" href="#support">
+                <i class="fa-solid fa-hand-holding-heart nav-icon support-icon"></i> Apoie
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <!-- destaque principal (imagem grande ou vídeo) -->
+        <div class="hero-main" id="heroMain">
+            <img width="" id="fallbackImage" src="/assets/hero4.png" alt="Preview">
+
+            <iframe id="videoFrame" src="https://www.youtube.com/embed/" title="Apresentação" frameborder="0"
+                allowfullscreen style="display:none;">
+            </iframe>
+        </div>
+
+        <script>
+            const iframe = document.getElementById('videoFrame');
+            const img = document.getElementById('fallbackImage');
+
+            iframe.onload = () => {
+                img.style.display = 'none';
+                iframe.style.display = 'block';
+            };
+        </script>
+
+        <!-- thumbnails laterais -->
+        <div class="hero-side">
+
+            <img src="/assets/hero1.png" onclick="openPreview(0)">
+            <img src="/assets/hero2.png" onclick="openPreview(1)">
+            <img src="/assets/hero3.png" onclick="openPreview(2)">
+
+        </div>
+
+    </div>
+
+    <!-- MODAL DE IMAGEM -->
+    <div class="img-modal" id="imgModal">
+
+        <span onclick="closePreview()">✕</span>
+
+        <img id="modalImg">
+
+        <div class="img-controls">
+            <button onclick="prevImg()">‹</button>
+            <button onclick="nextImg()">›</button>
+        </div>
+
+    </div>
+    <!-- ================= welcome ================= -->
+    <section class="welcome">
+        <h2>Bem-vindo ao EurionMC</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+    </section>
+
+    <!-- ================= VIP ================= -->
+    <section id="vips">
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-crown section-icon vip-icon"></i> VIPs
+        </h2>
+
+        <div class="grid">
+
+            <div class="vip">
+                <img src="/assets/vip_tag.png">
+                <h3>VIP</h3>
+                <p>R$ 2.00 - 13.90</p>
+                <button onclick="openModal('VIP')">Ver planos</button>
+            </div>
+
+            <div class="vip">
+                <img src="/assets/ultra_tag.png">
+                <h3>ULTRA</h3>
+                <p>R$ 3.50 - 24.90</p>
+                <button onclick="openModal('ULTRA')">Ver planos</button>
+            </div>
+
+            <div class="vip">
+                <img src="/assets/supremo_tag.png">
+                <h3>SUPREMO</h3>
+                <p>R$ 5.90 - 37.90</p>
+                <button onclick="openModal('SUPREMO')">Ver planos</button>
+            </div>
+
+            <div class="vip">
+                <img src="/assets/lendario_tag.png">
+                <h3>LENDÁRIO</h3>
+                <p>R$ 8.90 - 54.90</p>
+                <button onclick="openModal('LENDARIO')">Ver planos</button>
+            </div>
+
+            <div class="vip">
+                <img src="/assets/eurion_tag.png">
+                <h3>EURION</h3>
+                <p>R$ 13.90 - 89.90</p>
+                <button onclick="openModal('EURION')">Ver planos</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= COINS ================= -->
+    <section id="coin">
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-coins section-icon coin-icon"></i> ECoin
+        </h2>
+
+        <div class="grid">
+            <div class="coin">
+                <img src="/assets/coin-lv1.png" alt="Eurion Coin">
+                <div>
+                    <h3>100 ECoins</h3>
+                    <span class="bonus" style="font-size: 0.9em; display: block; margin-bottom: 5px; visibility: hidden;">ALINHAMENTO</span>
+                    <p>R$ 3,99</p>
+                </div>
+                <button onclick="buyCoins(100)">Comprar</button>
+            </div>
+
+            <div class="coin">
+                <img src="/assets/coin-lv2.png" alt="Eurion Coin">
+                <div>
+                    <h3>350 ECoins</h3>
+                    <span class="bonus"
+                        style="color: #55ff55; font-weight: bold; font-size: 0.9em; display: block; margin-bottom: 5px;">+50
+                        BÔNUS</span>
+                    <p>R$ 9,99</p>
+                </div>
+                <button onclick="buyCoins(350)">Comprar</button>
+            </div>
+
+            <div class="coin">
+                <img src="/assets/coin-lv3.png" alt="Eurion Coin">
+                <div>
+                    <h3>900 ECoins</h3>
+                    <span class="bonus"
+                        style="color: #55ff55; font-weight: bold; font-size: 0.9em; display: block; margin-bottom: 5px;">+100
+                        BÔNUS</span>
+                    <p>R$ 22,90</p>
+                </div>
+                <button onclick="buyCoins(900)">Comprar</button>
+            </div>
+
+            <div class="coin">
+                <img src="/assets/coin-lv4.png" alt="Eurion Coin">
+                <div>
+                    <h3>2.500 ECoins</h3>
+                    <span class="bonus"
+                        style="color: #ffcc00; font-weight: bold; font-size: 0.9em; display: block; margin-bottom: 5px;">+500
+                        BÔNUS! 🔥</span>
+                    <p>R$ 49,90</p>
+                </div>
+                <button onclick="buyCoins(2500)">Comprar</button>
+            </div>
+
+            <div class="coin">
+                <img src="/assets/coin-lv5.png" alt="Eurion Coin">
+                <div>
+                    <h3>6.500 ECoins</h3>
+                    <span class="bonus"
+                        style="color: #ff3333; font-weight: bold; font-size: 0.9em; display: block; margin-bottom: 5px;">+1.500
+                        SUPER BÔNUS! 👑</span>
+                    <p>R$ 109,90</p>
+                </div>
+                <button onclick="buyCoins(6500)">Comprar</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= KEYS ================= -->
+    <section id="keys">
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-key section-icon key-icon"></i> Chaves
+        </h2>
+
+        <div class="grid">
+
+            <div class="key">
+                <img src="/assets/key.png" alt="Chaves">
+
+                <div>
+                    <h3>Chaves</h3>
+                    <p>Em desenvolvimento</p>
+                </div>
+
+                <button disabled>Indisponível</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= COSMETICS ================= -->
+    <section id="cosmetic">
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-wand-magic-sparkles section-icon cosmetic-icon"></i> Cosméticos
+        </h2>
+
+        <div class="grid">
+
+            <div class="cosmetic">
+                <img src="/assets/cosmetic.png" alt="Cosméticos">
+
+                <div>
+                    <h3>Cosméticos</h3>
+                    <p>Em desenvolvimento</p>
+                </div>
+
+                <button disabled>Indisponível</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PETS ================= -->
+    <section id="pets">
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-paw section-icon pet-icon"></i> Pets
+        </h2>
+
+        <div class="grid">
+
+            <div class="pet">
+                <img src="/assets/pet.png" alt="Pets">
+
+                <div>
+                    <h3>Pets</h3>
+                    <p>Em desenvolvimento</p>
+                </div>
+
+                <button disabled>Indisponível</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= MODAL VIP ================= -->
+    <div class="modal" id="modal">
+        <div class="box">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div id="title" class="vip-title">
+                <img id="vipIcon" src="" alt="">
+                <span id="vipName"></span>
+            </div>
+
+            <h3 class="subtitle">Selecione um plano</h3>
+
+            <div id="plans" class="plans-grid"></div>
+
+            <button class="info-btn" onclick="toggleInfo()">Informações</button>
+
+            <div id="info" class="info hidden"></div>
+
+            <button class="buy" id="buy">Comprar</button>
+
+        </div>
+    </div>
+
+    <!-- ================= SUPPORT MODAL ================= -->
+    <div class="support-modal" id="supportModal">
+        <div class="support-box">
+
+            <span class="support-close" onclick="closeSupport()">&times;</span>
+
+            <h3>💎 Apoiar o EurionMC</h3>
+
+            <p>
+                Seu apoio ajuda o servidor a manter host, desenvolvimento, eventos e melhorias constantes.
+            </p>
+
+            <div class="support-grid">
+
+                <div class="support-item">
+                    <h4>🔧 Manutenção</h4>
+                    <p>Pagamentos do servidor e estabilidade online</p>
+                </div>
+
+                <div class="support-item">
+                    <h4>🎉 Eventos</h4>
+                    <p>Eventos semanais e recompensas especiais</p>
+                </div>
+
+                <div class="support-item">
+                    <h4>🚀 Desenvolvimento</h4>
+                    <p>Novas funções, sistemas e melhorias</p>
+                </div>
+
+            </div>
+
+            <button class="support-action">
+                Contribuir agora
+            </button>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- LOGO / DESCRIÇÃO -->
+            <div class="footer-box">
+                <h3>EurionMC</h3>
+                <p>Servidor Survival • Economia • Eventos • Comunidade ativa</p>
+            </div>
+
+            <!-- COMUNIDADE -->
+            <div class="footer-box">
+                <h4>Comunidade</h4>
+
+                <a href="https://discord.gg/vjATNUEVHm" target="_blank">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+
+                <a href="https://www.youtube.com/@eutovivu" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> YouTube
+                </a>
+            </div>
+
+            <!-- SERVIDOR -->
+            <div class="footer-box">
+                <h4>Servidor</h4>
+                <p>IP: Não possui ainda</p>
+                <p>Versão: 1.21+</p>
+            </div>
+
+            <!-- APOIO (CORRETO DENTRO DO CONTAINER) -->
+            <div class="footer-box" id="support">
+                <h4>
+                    <i class="fa-solid fa-hand-holding-heart section-icon support-icon"></i>
+                    Apoio
+                </h4>
+
+                <p>Apoie o servidor e ajude o projeto a crescer.</p>
+
+                <button class="footer-support-btn" onclick="openSupport()">
+                    💎 Apoiar servidor
+                </button>
+
+                <button class="footer-info-btn" onclick="toggleSupportInfo()">
+                    ℹ️ Mais informações
+                </button>
+
+                <div class="footer-support-info hidden" id="supportInfo">
+                    <p>O apoio é usado para:</p>
+                    <ul>
+                        <li>🖥️ Manter o servidor online 24/7</li>
+                        <li>⚙️ Melhorar performance e proteção</li>
+                        <li>🎉 Criar eventos e recompensas</li>
+                        <li>🧱 Desenvolvimento de novas features</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 EurionMC - Todos os direitos reservados
+        </div>
+
+    </footer>
+
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>
